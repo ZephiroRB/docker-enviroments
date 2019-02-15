@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  postgres:
+    container_name: postgresql
+    image: postgres:9.5.22
+    ports:
+      - "95432:5432"
+    volumes:
+      - "./data:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_PASSWORD: "yourpassword"
