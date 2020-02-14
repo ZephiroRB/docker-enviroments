@@ -5,7 +5,7 @@ $ docker-compose up -d
 ```
 
 # Access PGAdmin4
-open `http://localhost:16543`
+open `http://localhost:96543`
 
 Email : `youremail@email.com`
 

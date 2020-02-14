@@ -1,12 +1,30 @@
-version: '2'
+version: '3'
 
 services:
   postgres:
     container_name: postgresql
-    image: postgres:9.5.22
+    image: postgres:10
     ports:
       - "95432:5432"
     volumes:
       - "./data:/var/lib/postgresql/data"
     environment:
       POSTGRES_PASSWORD: "yourpassword"
+    networks:
+      - postgres-network
+      
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "youremail@email.com"
+      PGADMIN_DEFAULT_PASSWORD: "yourpassword"
+    ports:
+      - "96543:80"
+    depends_on:
+      - postgres
+    networks:
+      - postgres-network
+
+networks: 
+  postgres-compose-network:
+    driver: bridge
