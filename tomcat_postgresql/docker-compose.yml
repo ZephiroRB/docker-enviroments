@@ -3,7 +3,6 @@
 version: "3.8"
 
 services: 
-
     tomcat:
         image: tomcat:9.0
         container_name: tomcat
@@ -21,7 +20,7 @@ services:
             - red_tomcat
         #restart: always
         ports: 
-            - "15432:5432"
+            - "5432:5432"
         environment: 
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
